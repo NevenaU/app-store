@@ -1,5 +1,6 @@
 <template>
   <div>
+    <add-customer @create-customer="createCustomer"></add-customer>
     <h1>Customers</h1>
     <table class="table">
       <thead>
@@ -16,7 +17,13 @@
           <td>{{ customer.firstName }}</td>
           <td>{{ customer.lastName }}</td>
           <td>{{ customer.email }}</td>
-          <button @click="removeCustomer(customer.id)" type="button" class="btn btn-danger">Remove</button>
+          <button
+            @click="removeCustomer(customer.id)"
+            type="button"
+            class="btn btn-danger"
+          >
+            Remove
+          </button>
         </tr>
       </tbody>
     </table>
@@ -24,8 +31,12 @@
 </template>
 
 <script>
-import customerService from '../services/CustomerService.js'
+import AddCustomer from "./AddCustomer";
+import customerService from "../../services/CustomerService.js";
 export default {
+  components: {
+    AddCustomer,
+  },
   data() {
     return {
       customers: customerService.getAllCustomers(),
@@ -33,10 +44,12 @@ export default {
   },
   methods: {
     removeCustomer(customerId) {
-      customerService.removeCustomer(customerId)
-
-    }
-  }
+      customerService.removeCustomer(customerId);
+    },
+    createCustomer(formData) {
+			customerService.addNewCustomer(formData)
+		}
+  },
 };
 </script>
 

@@ -35,14 +35,20 @@ const customers = [
     cart: [],
   },
 ];
+let nextId = 6;
 class CustomerService {
   getAllCustomers() {
     return customers;
   }
   removeCustomer(id) {
-    const index = customers.findIndex(customer => customer.id === id)
-    customers.splice(index, 1)
+    const index = customers.findIndex((customer) => customer.id === id);
+    customers.splice(index, 1);
+  }
+  addNewCustomer(newCustomer) {
+    customers.push({...newCustomer, id: nextId});
+    nextId+=1;
 }
+
 }
 
 const customerService = new CustomerService();

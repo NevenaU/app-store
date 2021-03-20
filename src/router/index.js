@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import AppCustomers from '../components/AppCustomers.vue'
-import AppProducts from '../components/AppProducts'
+import AppCustomers from '../components/customers/AppCustomers.vue'
+import AppProducts from '../components/products/AppProducts.vue'
 Vue.use(VueRouter)
 
 const routes = [
