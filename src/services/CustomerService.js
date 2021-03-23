@@ -45,10 +45,12 @@ class CustomerService {
     customers.splice(index, 1);
   }
   addNewCustomer(newCustomer) {
-    customers.push({...newCustomer, id: nextId});
-    nextId+=1;
-}
-
+    customers.push({ ...newCustomer, id: nextId });
+    nextId += 1;
+  }
+  getCustomerById(id) {
+    return customers.find((customer) => customer.id === id);
+  }
 }
 
 const customerService = new CustomerService();

@@ -24,6 +24,11 @@
           >
             Remove
           </button>
+          <router-link
+            class="btn btn-class-primary"
+            :to="`/customers/${customer.id}`"
+            >Latest Purchases</router-link
+          >
         </tr>
       </tbody>
     </table>
@@ -47,8 +52,8 @@ export default {
       customerService.removeCustomer(customerId);
     },
     createCustomer(formData) {
-			customerService.addNewCustomer(formData)
-		}
+      customerService.addNewCustomer(formData);
+    },
   },
 };
 </script>
