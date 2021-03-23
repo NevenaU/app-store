@@ -1,5 +1,7 @@
 <template>
   <div>
+    <label for="search">Search:</label>
+    <input type="text" v-model="searchValue" />
     <table class="table">
       <thead>
         <tr>
@@ -22,18 +24,27 @@
 </template>
 
 <script>
-import productService from '../../services/ProductService'
+import productService from "../../services/ProductService";
 export default {
   computed: {
-		getProducts() {
-			return this.products
-		}
-	},
-	data() {
-		return {
-			products: productService.getAllProducts()
-		}
-	}
+    getProducts() {
+      return this.searchValue ? this.filteredProducts : this.products
+    },
+  },
+  data() {
+    return {
+      products: productService.getAllProducts(),
+      searchValue: "",
+      filteredProducts: [],
+    };
+  },
+  watch: {
+    searchValue: function (newValue) {
+      this.filteredProducts = this.products.filter(({ title }) =>
+        title.toLowerCase().includes(newValue.toLowerCase())
+      );
+    },
+  },
 };
 </script>
 
