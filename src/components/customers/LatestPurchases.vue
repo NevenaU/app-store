@@ -4,6 +4,7 @@
     <li>{{customer.firstName}}</li>
     <li>{{customer.lastName}}</li>
     <li>{{customer.email}}</li>
+     <li>{{customer.cart}}</li>
   </ul>
 </template>
 
