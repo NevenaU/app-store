@@ -1,11 +1,9 @@
 <template>
   <ul class="list-group">
-    <li>{{customer.id}}</li>
-    <li>{{customer.firstName}}</li>
-    <li>{{customer.lastName}}</li>
-    <li>{{customer.email}}</li>
-     <li>{{customer.cart}}</li>
-  </ul>
+		<li v-for="(product, index) in customer.cart" :key="index" class="list-group-item">
+			{{product.title}}
+		</li>
+	</ul>
 </template>
 
 <script>

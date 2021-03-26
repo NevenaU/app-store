@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import AppCustomers from '../components/customers/AppCustomers.vue'
 import AppProducts from '../components/products/AppProducts.vue'
 import LatestPurchases from '../components/customers/LatestPurchases.vue'
+import BuyProduct from '../components/products/BuyProduct.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -25,6 +26,12 @@ const routes = [
     name: 'latest-purchases',
     props: true,
     component: LatestPurchases
+  },
+  {
+    path: '/products/:id',
+    name: 'buy-product',
+    props: true,
+    component: BuyProduct
   },
   
 ]

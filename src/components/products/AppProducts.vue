@@ -17,6 +17,11 @@
           <td>
             <input type="number" min="0" v-model="product.quantity" />
           </td>
+          <td>
+            <router-link :to="`/products/${product.id}`"
+              >Buy</router-link
+            >
+          </td>
         </tr>
       </tbody>
     </table>
@@ -28,7 +33,7 @@ import productService from "../../services/ProductService";
 export default {
   computed: {
     getProducts() {
-      return this.searchValue ? this.filteredProducts : this.products
+      return this.searchValue ? this.filteredProducts : this.products;
     },
   },
   data() {
